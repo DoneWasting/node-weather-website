@@ -26,7 +26,7 @@ app.use(express.static(publicDirPath));
 // Routes
 app.get('', (req, res) => {
     res.render('index', {
-        title: 'Weather App hbs',
+        title: 'Weather App',
         name: 'David Sequera'
     });
 });
@@ -52,7 +52,7 @@ app.get('/weather', (req, res) => {
             error:'You must provide an address'
         })
     }
-
+    console.log(req.query);
     geoCode(req.query.address, (error, {latitude, longitude, location} = {}) => {
         if(error){
             return res.send({error});

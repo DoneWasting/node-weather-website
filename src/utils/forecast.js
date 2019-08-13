@@ -10,8 +10,7 @@ const forecast = (latitude, longitude, callback) => {
         } else if (body.error){
             callback('Unable to find location', undefined);
         } else {
-            console.log(body.daily.data[0].temperatureMin);
-            callback(undefined, `${body.daily.data[0].summary} Hacen  ${body.currently.temperature} grados celcius, con una probabilidad de lluvia de ${body.currently.precipProbability}%, una temperatura maxima de ${body.daily.data[0].temperatureMax} Celcius y una temperatura minima de ${body.daily.data[0].temperatureMin}`);
+            callback(undefined, `Current temperature is ${body.currently.temperature} celcius, with a probability for rain of ${body.currently.precipProbability}%, the hotter it can get is ${body.daily.data[0].temperatureMax} Celcius and the colder it can get is ${body.daily.data[0].temperatureMin} Celcius`);
         }
     })
 }
